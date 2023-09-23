@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+ <head>
+  <title>Event Countdown</title>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width'/>
+  <link href='./main.css' rel="stylesheet">
+  <script src='./main.js'></script>
+  <script src='./languages.js'></script>
+  <script src='./calculate.js'></script>
+  <script src='./webxdc.js'></script>
+  <style type='text/css'></style>
+ </head>
+<font size='6'>Event Countdown</font>
+<font size='1'> by <a href="mailto:webratte+webxdc@mailbox.org">Webratte </a> Version 0.0.6
+</font>
+<body>
+ <form>
+ <!-- 1. Event Table -->            
+ <table id="table0" class="table">
+  <th id= "labelTable0" onclick = showInput(this.id);>
+   <p class="eventlabel" id ="addEventLabel0"></p>
+   <table id= "innerTable0" class="innertable" onclick = showInput(this.id);>
+    <tr>
+     <td class="tile" id='calcY0'></td>
+     <td class="tile" id='calcM0'></td>
+     <td class="tile" id='calcD0'></td>
+    </tr>
+    <tr>
+     <td id='labelY0'></td>
+     <td id='labelM0'></td>
+     <td id='labelD0'></td>
+    </tr>
+   </table>
+  </th>
+  <th class="buttontable">
+   <p class='datelabelactiv' id='labelDate0'></p>
+   <input class="button" type='button' id='btnPush0' onclick="sendInfoMsg(this.id);">
+  </th>
+ </table>
+ <!-- 2. Event Table -->            
+ <table id="table1" class="table">
+  <th id= "labelTable1" onclick = showInput(this.id);>
+   <p class="eventlabel" id ="addEventLabel1"></p>
+   <table id= "innerTable0" class="innertable" onclick = showInput(this.id);>
+    <tr>
+     <td class="tile" id='calcY1'></td>
+     <td class="tile" id='calcM1'></td>
+     <td class="tile" id='calcD1'></td>
+    </tr>
+    <tr>
+     <td id='labelY1'></td>
+     <td id='labelM1'></td>
+     <td id='labelD1'></td>
+    </tr>
+   </table>
+  </th>
+  <th class="buttontable">
+   <p class='datelabelactiv' id='labelDate1'></p>
+   <input class="button" type='button' id='btnPush1' onclick="sendInfoMsg(this.id);">
+  </th>
+ </table>
+ <!-- 3. Event Table -->            
+ <table id="table2" class="table">
+  <th id= "labelTable2" onclick = showInput(this.id);>
+   <p class="eventlabel" id ="addEventLabel2"></p>
+   <table id= "innerTable0" class="innertable" onclick = showInput(this.id);>
+    <tr>
+     <td class="tile" id='calcY2'></td>
+     <td class="tile" id='calcM2'></td>
+     <td class="tile" id='calcD2'></td>
+    </tr>
+    <tr>
+     <td id='labelY2'></td>
+     <td id='labelM2'></td>
+     <td id='labelD2'></td>
+    </tr>
+   </table>
+  </th>
+  <th class="buttontable">
+   <p class='datelabelactiv' id='labelDate2'></p>
+   <input class="button" type='button' id='btnPush2' onclick="sendInfoMsg(this.id);">
+  </th>
+ </table>
+ <!-- 4. Event Table -->            
+ <table id="table3" class="table">
+  <th id= "labelTable3" onclick = showInput(this.id);>
+   <p class="eventlabel" id ="addEventLabel3"></p>
+   <table id= "innerTable0" class="innertable" onclick = showInput(this.id);>
+    <tr>
+     <td class="tile" id='calcY3'></td>
+     <td class="tile" id='calcM3'></td>
+     <td class="tile" id='calcD3'></td>
+    </tr>
+    <tr>
+     <td id='labelY3'></td>
+     <td id='labelM3'></td>
+     <td id='labelD3'></td>
+    </tr>
+   </table>
+  </th>
+  <th class="buttontable">
+   <p class='datelabelactiv' id='labelDate3'></p>
+   <input class="button" type='button' id='btnPush3' onclick="sendInfoMsg(this.id);">
+  </th>
+ </table>
+ <!-- 5. Event Table -->            
+ <table id="table4" class="table">
+  <th id= "labelTable4" onclick = showInput(this.id);>
+   <p class="eventlabel" id ="addEventLabel4"></p>
+   <table id= "innerTable4" class="innertable" onclick = showInput(this.id);>
+    <tr>
+     <td class="tile" id='calcY4'></td>
+     <td class="tile" id='calcM4'></td>
+     <td class="tile" id='calcD4'></td>
+    </tr>
+    <tr>
+     <td id='labelY4'></td>
+     <td id='labelM4'></td>
+     <td id='labelD4'></td>
+    </tr>
+   </table>
+  </th>
+  <th class="buttontable">
+   <p class='datelabelactiv' id='labelDate4'></p>
+   <input class="button" type='button' id='btnPush4' onclick="sendInfoMsg(this.id);">
+  </th>
+ </table>
+ <!-- 6. Event Table -->            
+ <table id="table5" class="table">
+  <th id= "labelTable5" onclick = showInput(this.id);>
+   <p class="eventlabel" id ="addEventLabel5"></p>
+   <table id= "innerTable5" class="innertable" onclick = showInput(this.id);>
+    <tr>
+     <td class="tile" id='calcY5'></td>
+     <td class="tile" id='calcM5'></td>
+     <td class="tile" id='calcD5'></td>
+    </tr>
+    <tr>
+     <td id='labelY5'></td>
+     <td id='labelM5'></td>
+     <td id='labelD5'></td>
+    </tr>
+   </table>
+  </th>
+  <th class="buttontable">
+   <p class='datelabelactiv' id='labelDate5'></p>
+   <input class="button" type='button' id='btnPush5' onclick="sendInfoMsg(this.id);">
+  </th>
+ </table>
+ </form>
+
+<!-- Begin of HTML for Input instead an new page -->
+<div style="text-align: center;">
+ <h1 id="newEventTitle"></h1>
+ <input class="button" type='button' id='btnDelete' disabled="true" onclick = "deleteEntry()";>
+</div>
+<table id='tableInput' class="tableActiv">
+ <tr>
+  <th>
+   <!-- TODO add labels -->
+   <p><input class="eventlabelActiv" type="text" id="inputEvent" maxlength='20' oninput= "activateBtn()" </p>
+   <p><input class="eventlabelActiv" type="date" id="datepicker" oninput= "activateBtn()"</p>
+  </th>
+ </tr>
+</table>
+<br>
+<input class="button" type='button' id='btnSave' disabled="true" onclick = 'save()';>
+<input class="button" type='button' id='btnCancel' onclick = 'cancel();' style='float: right'>
+
+<script>
+ const arrInputTable = ['newEventTitle','btnDelete','tableInput','btnSave','btnCancel'];
+ const arrCalc=["calcY", "calcM", "calcD"];
+ let arrHistory = [];
+ let arrCalcReady=[];
+ window.tableID = "table";
+ window.btnID = "btnPush";
+ window.labelDatelD="labelDate";
+ window.btnID="btnPush";
+ window.eventLabelID="addEventLabel";
+ window.maxTable = 6;
+ hideInput();
+ update();
+ window.page="index";
+ changeLanguage();
+ window.hideFrom = 1;
+ hideTable();
+ fillTables();
+    
+/* begin input related */
+ tmpEvent = document.getElementById('inputEvent').value;
+ tmpDate = document.getElementById('datepicker').value;
+ window.page="addevent";
+ changeLanguage();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #e1e1e1;
+}
+
+/*   Inactiv tables */
+.button {
+    //text-algin: center;
+    background: #bababa;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.tile {
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffffff;
+    border-radius: 20px;
+}
+
+.table {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #ffffff;
+    border-radius: 5px;
+}
+
+.innertable {
+    text-align: center;
+    width: 100%;
+}
+
+.buttontable {
+    text-align: center;
+    width: 10%;
+}
+
+.eventlabel {
+    width: 80%;
+    display: inline;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Visible and activ tables */
+.buttonActiv {
+    text-algin: center;
+    background: #bababa;
+    border-radius: 5px;
+}
+
+.tileActiv {
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #5558ff;
+    border-radius: 20px;
+}
+
+.tableActiv {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #5558ff;
+    border-radius: 5px;
+}
+
+.tableNow {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #0c9515;
+    border-radius: 5px;
+}
+.tableExpired {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #ff1554;
+    border-radius: 5px;
+}
+
+.innertableActiv {
+    text-align: center;
+    width: 100%;
+}
+
+.buttontableActiv {
+    text-align: center;
+    width: 10%;
+}
+.datelabelactiv {
+    vertical-align: top;
+    width: 80%;
+    display: inline;
+    font-size: 15px;
+}
+
+.eventlabelActiv {
+    width: 80%;
+    display: inline;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Input */
+.inputfield {
+text-align: center;
+    width: 95%;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: 50px;
+    border-color: #5558ff;
+    border-radius: 5px;
+}
