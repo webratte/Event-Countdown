@@ -50,10 +50,10 @@ function fillTables() {
   document.getElementById(tableID+i1.toString()).className = "table";
    for (a1=0;a1<3;a1++) {
     for (b=0;b<3;b++) {
- 	  calcID = arrCalc[b];
+     calcID = arrCalc[b];
      document.getElementById(calcID+a1.toString()).innerHTML = "---";
- 	 }
- 	}
+    }
+   }
  };
  hideTable();
  let a=0;
@@ -114,7 +114,7 @@ function save() {
 // send new updates
  window.storedEvent = document.getElementById('inputEvent').value;
  window.storedDate = document.getElementById('datepicker').value;
- info = window.webxdc.selfName+ " added an countdown for " + '\'' + window.storedEvent + '\'' +" this message will refined later. Also for changed Events";
+ info = window.webxdc.selfName+ " added an countdown for " + '\"' + window.storedEvent + '\"' +" this message will refined later. Also for changed Events";
  if (clickedID < arrHistory.length) {
   arrHistory[clickedID] = window.storedEvent;
   arrHistory[clickedID+1] = window.storedDate;
@@ -138,7 +138,7 @@ function sendUpdate() {
 };
 
 function deleteEntry() {
- info = window.webxdc.selfName+ " deleted an event. This message will be refined later";
+ info = window.webxdc.selfName+ " deleted the event "+ '\"' + arrHistory[clickedID] + '\"';
  arrHistory.splice(clickedID,2);
  sendUpdate();
  cancel();
