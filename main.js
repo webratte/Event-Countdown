@@ -44,6 +44,18 @@ function clearStorage() {
 
 function fillTables() {
  eventLabelID = ("addEventLabel");
+ for (i1=0;i1<6;i1++) {
+  document.getElementById(eventLabelID+i1.toString()).innerHTML =  strAddEvent;
+  document.getElementById(labelDatelD+i1.toString()).innerHTML = "";
+  document.getElementById(tableID+i1.toString()).className = "table";
+   for (a1=0;a1<3;a1++) {
+    for (b=0;b<3;b++) {
+ 	  calcID = arrCalc[b];
+     document.getElementById(calcID+a1.toString()).innerHTML = "---";
+ 	 }
+ 	}
+ };
+ hideTable();
  let a=0;
   for (let i=0;i<arrHistory.length;i=i+2) {
    targetDate = arrHistory[i+1];
@@ -71,7 +83,7 @@ if (window.countY == 0 && window.countM == 0 && window.countD > 0 && window.coun
 };
      if (diffDays < 0) { document.getElementById(tableID+a.toString()).className = "tableExpired";
      };
-     document.getElementById(eventLabelID+a.toString()).innerHTML =  arrHistory[i];   
+     document.getElementById(eventLabelID+a.toString()).innerHTML =  arrHistory[i];
      document.getElementById(window.btnID+a.toString()).disabled = false;
     };
     if (a<window.maxTable-1) {
