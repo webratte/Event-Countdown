@@ -29,8 +29,12 @@ function showInput(clicked_id) {
 function update() {
  let promise = window.webxdc.setUpdateListener((update) => {
  arrHistory = update.payload.arrHistory;
- },);
- fillTables();
+ serial= update.serial;
+ max_serial = update.max_serial;
+ if (max_serial == serial) {
+  fillTables();
+ };
+ }, );
 };
 
 function clearStorage() {
@@ -51,6 +55,7 @@ function fillTables() {
    calculateCountdown();
    for (let c=0;c<arrCalc.length;c++){
     calcID = arrCalc[c];  document.getElementById(calcID+a.toString()).innerHTML = arrCalcReady[c];
+    
 
 //TODO Remove this loop if calculation of expired events is implemented
     if (diffDays < 0) {
@@ -62,6 +67,8 @@ function fillTables() {
      if (window.countY == 0 && window.countM == 0 && window.countD == 0) {
       document.getElementById(tableID+a.toString()).className = "tableNow";
      };
+if (window.countY == 0 && window.countM == 0 && window.countD > 0 && window.countD < 8) { document.getElementById(tableID+a.toString()).className = "table7Days";
+};
      if (diffDays < 0) { document.getElementById(tableID+a.toString()).className = "tableExpired";
      };
      document.getElementById(eventLabelID+a.toString()).innerHTML =  arrHistory[i];   

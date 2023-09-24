@@ -12,7 +12,7 @@
   <style type='text/css'></style>
  </head>
 <font size='6'>Event Countdown</font>
-<font size='1'> by <a href="mailto:webratte+webxdc@mailbox.org">Webratte </a> Version 0.0.6
+<font size='1'> by <a href="mailto:webratte+webxdc@mailbox.org">Webratte </a> Version 0.0.8
 </font>
 <body>
  <form>
@@ -42,7 +42,7 @@
  <table id="table1" class="table">
   <th id= "labelTable1" onclick = showInput(this.id);>
    <p class="eventlabel" id ="addEventLabel1"></p>
-   <table id= "innerTable0" class="innertable" onclick = showInput(this.id);>
+   <table id= "innerTable1" class="innertable" onclick = showInput(this.id);>
     <tr>
      <td class="tile" id='calcY1'></td>
      <td class="tile" id='calcM1'></td>
@@ -64,7 +64,7 @@
  <table id="table2" class="table">
   <th id= "labelTable2" onclick = showInput(this.id);>
    <p class="eventlabel" id ="addEventLabel2"></p>
-   <table id= "innerTable0" class="innertable" onclick = showInput(this.id);>
+   <table id= "innerTable2" class="innertable" onclick = showInput(this.id);>
     <tr>
      <td class="tile" id='calcY2'></td>
      <td class="tile" id='calcM2'></td>
@@ -86,7 +86,7 @@
  <table id="table3" class="table">
   <th id= "labelTable3" onclick = showInput(this.id);>
    <p class="eventlabel" id ="addEventLabel3"></p>
-   <table id= "innerTable0" class="innertable" onclick = showInput(this.id);>
+   <table id= "innerTable3" class="innertable" onclick = showInput(this.id);>
     <tr>
      <td class="tile" id='calcY3'></td>
      <td class="tile" id='calcM3'></td>
@@ -180,12 +180,11 @@
  window.eventLabelID="addEventLabel";
  window.maxTable = 6;
  hideInput();
- update();
  window.page="index";
  changeLanguage();
  window.hideFrom = 1;
  hideTable();
- fillTables();
+ update();
     
 /* begin input related */
  tmpEvent = document.getElementById('inputEvent').value;
