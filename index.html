@@ -9,10 +9,11 @@
   <script src='./languages.js'></script>
   <script src='./calculate.js'></script>
   <script src='./webxdc.js'></script>
+  <script src='./sendmsg.js'></script>
   <style type='text/css'></style>
  </head>
 <font size='6'>Event Countdown</font>
-<font size='1'> by <a href="mailto:webratte+webxdc@mailbox.org">Webratte </a> Version 0.0.8
+<font size='1'> by <a href="mailto:webratte+webxdc@mailbox.org">Webratte </a> Version 1.0 beta 2
 </font>
 <body>
  <form>
@@ -131,7 +132,7 @@
   <th id= "labelTable5" onclick = showInput(this.id);>
    <p class="eventlabel" id ="addEventLabel5"></p>
    <table id= "innerTable5" class="innertable" onclick = showInput(this.id);>
-    <tr>
+    <th>
      <td class="tile" id='calcY5'></td>
      <td class="tile" id='calcM5'></td>
      <td class="tile" id='calcD5'></td>
@@ -140,7 +141,7 @@
      <td id='labelY5'></td>
      <td id='labelM5'></td>
      <td id='labelD5'></td>
-    </tr>
+    </th>
    </table>
   </th>
   <th class="buttontable">
@@ -156,13 +157,14 @@
  <input class="button" type='button' id='btnDelete' disabled="true" onclick = "deleteEntry()";>
 </div>
 <table id='tableInput' class="tableActiv">
- <tr>
   <th>
-   <!-- TODO add labels -->
    <p><input class="eventlabelActiv" type="text" id="inputEvent" maxlength='20' oninput= "activateBtn()" </p>
+   <br>
+   <output class="eventlabel" id="inputlabel">
    <p><input class="eventlabelActiv" type="date" id="datepicker" oninput= "activateBtn()"</p>
+   <br>
+   <output class="eventlabel" id="datepickerlabel">
   </th>
- </tr>
 </table>
 <br>
 <input class="button" type='button' id='btnSave' disabled="true" onclick = 'save()';>
@@ -173,6 +175,8 @@
  const arrCalc=["calcY", "calcM", "calcD"];
  let arrHistory = [];
  let arrCalcReady=[];
+ let arrBtnPushed=[];
+ entrieChanged = false;
  window.tableID = "table";
  window.btnID = "btnPush";
  window.labelDatelD="labelDate";

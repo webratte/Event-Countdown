@@ -14,7 +14,7 @@ function changeLanguage() {
                strBtnDelete = "Eintrag löschen";
                strIptLabelE = "Ereignis";
                strIptDate = "Zieldatum";
-          }
+              }
           else if (browserLang == "fr") {
                //french
                strBtnPush = "Envoyer un\nmessage\nd'information"
@@ -28,7 +28,7 @@ function changeLanguage() {
                strBtnDelete = "Supprimer l'entrée";
                strIptLabelE = "Evènement";
                strIptDate = "Date cible";
-          }
+          }               
           else {
                //fallback
                strBtnPush = "Send\nInfomessage";
@@ -43,7 +43,8 @@ function changeLanguage() {
                strIptLabelE = "Event";
                strIptDate = "Target date";
           }
-
+document.getElementById("inputlabel").innerHTML=strIptLabelE;
+document.getElementById("datepickerlabel").innerHTML=strIptDate;
 if (window.page=="index") {
  const arrLang=[strYear, strMonth, strDay];
  const arrLabel=["labelY", "labelM", "labelD"];
@@ -52,7 +53,7 @@ if (window.page=="index") {
   labelID = arrLabel[i];
   calcID = arrCalc[i];
   for (let a=0;a<window.maxTable;a++) {
-   document.getElementById(labelID+a.toString()).innerHTML = string;     
+   document.getElementById(labelID+a.toString()).innerHTML = string;
    document.getElementById(calcID+a.toString()).innerHTML = "---";
    document.getElementById(btnID+a.toString()).value=strBtnPush;
    document.getElementById(eventLabelID+a.toString()).innerHTML =  strAddEvent;
