@@ -2,7 +2,7 @@ function calculateCountdown() {
     arrCalcReady=[];
     let dateCurrent = new Date();
     let dateTarget = new
-Date(window.targetY+"-"+window.targetM+"-"+window.targetD);
+    Date(window.targetY+"-"+window.targetM+"-"+window.targetD);
     window.expired = false;
     currentY = parseInt(dateCurrent.getFullYear());
     currentM = parseInt((dateCurrent.getMonth()+1));
@@ -66,7 +66,6 @@ arrCalcReady.push(window.countY,window.countM,window.countD);
 };
 
 function expiredEvent () {
-    //TODO calculate expired time
     if (window.countY > 0) {window.countY=window.countY * -1};
     if (window.countM > 0) {window.countM=window.countM * -1};
     if (window.countD > 0) {window.countD=window.countD * -1};

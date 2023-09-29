@@ -53,7 +53,7 @@ if (window.page=="index") {
   labelID = arrLabel[i];
   calcID = arrCalc[i];
   for (let a=0;a<window.maxTable;a++) {
-   document.getElementById(labelID+a.toString()).innerHTML = string;
+   document.getElementById(labelID+a.toString()).innerHTML = string;     
    document.getElementById(calcID+a.toString()).innerHTML = "---";
    document.getElementById(btnID+a.toString()).value=strBtnPush;
    document.getElementById(eventLabelID+a.toString()).innerHTML =  strAddEvent;

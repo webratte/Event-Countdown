@@ -73,8 +73,9 @@ function fillTables() {
      if (window.countY == 0 && window.countM == 0 && window.countD == 0) {
       document.getElementById(tableID+a.toString()).className = "tableNow";
      };
-if (window.countY == 0 && window.countM == 0 && window.countD > 0 && window.countD < 8) { document.getElementById(tableID+a.toString()).className = "table7Days";
-};
+    if (window.countY == 0 && window.countM == 0 && window.countD > 0 && window.countD < 8) {
+    	document.getElementById(tableID+a.toString()).className = "table7Days";
+    };
      if (window.expired == true) { document.getElementById(tableID+a.toString()).className = "tableExpired";
      };
      document.getElementById(eventLabelID+a.toString()).innerHTML =  arrHistory[i];
@@ -119,6 +120,7 @@ function save() {
   arrHistory.push(window.storedEvent,window.storedDate);
 info = window.webxdc.selfName+ " added an countdown for " + '\"' + window.storedEvent + '\"';
  };
+ if (arrHistory.length >2) {sortEntries()};
  sendUpdate();
  clearStorage();
  hideInput();
@@ -144,4 +146,22 @@ function deleteEntry() {
 function cancel() {
  clearStorage();
  location.assign('./index.html');
+};
+
+function sortEntries() {
+sorted = false;
+ while (sorted == false) {
+ sorted = true;
+  for (i=0;i<arrHistory.length;i=i+2) {
+   if (arrHistory[i+1]>arrHistory[i+3]) {
+    sorted = false;
+    tempEvent=arrHistory[i];
+    tempDate=arrHistory[i+1];
+    arrHistory[i+1]=arrHistory[i+3];
+    arrHistory[i]=arrHistory[i+2];
+    arrHistory[i+2]=tempEvent;
+    arrHistory[i+3]=tempDate;
+   };
+  };
+ };
 };
