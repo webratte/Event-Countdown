@@ -67,15 +67,15 @@ function fillTables() {
    calculateCountdown();
    for (let c=0;c<arrCalc.length;c++) {
     calcID = arrCalc[c];  document.getElementById(calcID+a.toString()).innerHTML = arrCalcReady[c];
-    if (window.countY > 0) {
+    if (window.countY != 0) {
      document.getElementById(calcID+a.toString()).className = "tileLight";
     }
    };
-   if (window.countY == 0 && window.countM > 0) {
+   if (window.countY == 0 && window.countM != 0) {
     document.getElementById("calcM"+a.toString()).className = "tileLight";
     document.getElementById("calcD"+a.toString()).className = "tileLight";
    };
-   if (window.countY == 0 && window.countM == 0 && window.countD > 0) {
+   if (window.countY == 0 && window.countM == 0 && window.countD != 0) {
     document.getElementById("calcD"+a.toString()).className = "tileLight";
    };      
     if (a<window.maxTable) {
