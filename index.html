@@ -13,7 +13,7 @@
   <style type='text/css'></style>
  </head>
 <font size='6'>Event Countdown</font>
-<font size='1'> by <a href="mailto:webratte+webxdc@mailbox.org">Webratte </a> Version 1.1 beta1
+<font size='1'> by <a href="mailto:webratte+webxdc@mailbox.org">Webratte </a> Version 1.0.1
 </font>
 <body>
  <form>
@@ -171,7 +171,6 @@
 <input class="button" type='button' id='btnCancel' onclick = 'cancel();' style='float: right'>
 
 <script>
- infoSite = false;
  const arrInputTable = ['newEventTitle','btnDelete','tableInput','btnSave','btnCancel'];
  const arrCalc=["calcY", "calcM", "calcD"];
  let arrHistory = [];
@@ -195,7 +194,7 @@
  tmpEvent = document.getElementById('inputEvent').value;
  tmpDate = document.getElementById('datepicker').value;
  window.page="addevent";
- changeLanguage(); 
+ changeLanguage();
 </script>
 </body>
 </html>
