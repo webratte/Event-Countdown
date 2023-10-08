@@ -2,7 +2,7 @@ function sendInfoMsg(clicked_id) {
  localStorage.setItem("clicked_id", clicked_id);
  arrBtnPushed.push(parseInt(clicked_id.substr(7 ,1)));
  targetDate = arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)+1];
- const arrTarget = targetDate.split("-");
+ const arrTarget = targetDate.split("-");
  window.targetY = parseInt(arrTarget[0]);
  window.targetM = parseInt(arrTarget[1]);
  window.targetD = parseInt(arrTarget[2]);
