@@ -1,31 +1,91 @@
 function sendInfoMsg(clicked_id) {
+ localStorage.setItem("clicked_id", clicked_id);
  arrBtnPushed.push(parseInt(clicked_id.substr(7 ,1)));
  targetDate = arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)+1];
- const arrTarget = targetDate.split("-");
+ const arrTarget = targetDate.split("-");
  window.targetY = parseInt(arrTarget[0]);
  window.targetM = parseInt(arrTarget[1]);
  window.targetD = parseInt(arrTarget[2]);
  calculateCountdown();
- if (window.countY>0) {
- info = window.webxdc.selfName + " would like to remind you of the event " + '\"' + arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)] + '\"' +" in " + window.countY + " year(s), " +  window.countM + " month(s) and " + window.countD + " day(s).";
+ tmpEvent = arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)];
+ senderName = window.webxdc.selfName;
+ 
+ //set string and language for infomessage
+ window.fallback = true; 
+ changeLanguage();
+ if (window.expired == true) {
+  info = strInfoMsgO.replace('%N', senderName).replace ('%E', tmpEvent);
+  if (window.fallback == false) {
+   changeLanguage();
+   infoEn = strInfoMsgO.replace('%N', senderName).replace ('%E', tmpEvent);
+   addEnglish();
+  }
+ }
+ else if (window.countY>0) {
+  info = strInfoMsgY.replace('%N', senderName).replace ('%E', tmpEvent).replace('%Y',window.countY).replace('%M',window.countM).replace('%D',window.countD);
+  if (window.fallback == false) {
+   changeLanguage();
+   infoEn = strInfoMsgY.replace('%N', senderName).replace ('%E', tmpEvent).replace('%Y',window.countY).replace('%M',window.countM).replace('%D',window.countD);
+   addEnglish();
+  }
  }
  else if (window.countM>0) {
-   info = window.webxdc.selfName + " would like to remind you of the event " + '\"' + arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)] + '\"' +" in " +  window.countM + " month(s) and " + window.countD + " day(s).";
+  info = strInfoMsgM.replace('%N', senderName).replace ('%E', tmpEvent).replace('%M',window.countM).replace('%D',window.countD);
+  if (window.fallback == false) {
+   changeLanguage();
+   infoEn = strInfoMsgM.replace('%N', senderName).replace ('%E', tmpEvent).replace('%M',window.countM).replace('%D',window.countD);
+   addEnglish();
   }
-  else if (window.countD>0) {
-  info = window.webxdc.selfName + " would like to remind you of the event " + '\"' + arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)] + '\"' +" in " + window.countD + " day(s).";
-  
-  if (window.countD == 1) {
-   info = window.webxdc.selfName + " would like to remind you of the event " + '\"' + arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)] + '\"' +" tomorrow.";      
+ }
+ else if (window.countD>1) {
+  info = strInfoMsgD.replace('%N', senderName).replace ('%E', tmpEvent).replace('%D',window.countD);
+  if (window.fallback == false) {
+   changeLanguage();
+   infoEn = strInfoMsgD.replace('%N', senderName).replace ('%E', tmpEvent).replace('%D',window.countD);
+   addEnglish();
   }
-  
+ }
+ else if (window.countD == 1) {
+  info = strInfoMsgTM.replace('%N', senderName).replace ('%E', tmpEvent);
+  if (window.fallback == false) {
+   changeLanguage();
+   infoEn = strInfoMsgTM.replace('%N', senderName).replace ('%E', tmpEvent);
+   addEnglish();
   }
-  else {
-   info = window.webxdc.selfName + " would like to remind you of the event " + '\"' + arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)] + '\"' + " today.";
+ }
+ else {
+  info = strInfoMsgTD.replace('%N', senderName).replace ('%E', tmpEvent).replace('%D',window.countD);
+  if (window.fallback == false) {
+   changeLanguage();
+   infoEn = strInfoMsgTD.replace('%N', senderName).replace ('%E', tmpEvent).replace('%D',window.countD);
+   addEnglish();
   }
-  
-  if (window.expired == true) {
-     info = window.webxdc.selfName + " would like to remind you that the event " + '\"' + arrHistory[((parseInt(clicked_id.substr(7 ,1)))*2)] + '\"' +" is already over.";
-    };
- sendUpdate();
+ }
+ localStorage.setItem("info", info);
+ location.assign("./chatmsg.html"); 
+};
+
+function addEnglish() {
+ info = info + "\n" + "\n" + "<-- english below -->" + "\n" + "\n" + infoEn;
+ window.fallback = true;
+};
+
+function sendSilentMsg() {
+ info = localStorage.getItem("info");
+ localStorage.setItem("silentMsgSent", "true");
+ location.assign('./index.html');
+}
+
+function cancelSendMsg() {
+ localStorage.setItem("info", "");
+ location.assign("./index.html");
+}
+
+function sendChatMsg() {
+ info = localStorage.getItem("info");
+ localStorage.setItem("info", "");
+ window.webxdc.sendToChat({
+    text: info
+});
+location.assign('./index.html');
 };

@@ -13,6 +13,8 @@ function hideInput() {
 };
 
 function showInput(clicked_id) {
+ window.fallback = true; 
+ changeLanguage();
  clickedID = parseInt(clicked_id.substr(10 ,1));
  clickedID = clickedID * 2;
  for (let i = 0;i<5;i++) { document.getElementById(arrInputTable[i]).style.display = '';
@@ -24,17 +26,6 @@ function showInput(clicked_id) {
   window.hideFrom = 0;
   hideTable();
  };
-};
-
-function update() {
- let promise = window.webxdc.setUpdateListener((update) => {
- arrHistory = update.payload.arrHistory;
- serial= update.serial;
- max_serial = update.max_serial;
- if (max_serial == serial) {
-  fillTables();
- };
- }, );
 };
 
 function clearStorage() {
@@ -84,20 +75,16 @@ function fillTables() {
       document.getElementById(tableID+a.toString()).className = "tableNow";
      };
     if (window.countY == 0 && window.countM == 0 && window.countD > 0 && window.countD < 8) {
-    	document.getElementById(tableID+a.toString()).className = "table7Days";
+     document.getElementById(tableID+a.toString()).className = "table7Days";
     };
-     if (window.expired == true) { document.getElementById(tableID+a.toString()).className = "tableExpired";
+     if (window.expired == true) {
+     	document.getElementById(tableID+a.toString()).className = "tableExpired";
      };
      document.getElementById(eventLabelID+a.toString()).innerHTML =  arrHistory[i];
-     document.getElementById(window.btnID+a.toString()).disabled = false;
-     if (arrBtnPushed.length > 0) {
-      for (c=0;c<arrBtnPushed.length;c++) {
-       document.getElementById(window.btnID+arrBtnPushed[c].toString()).disabled = true;   
-      }
-     }
+     document.getElementById(window.btnID+a.toString()).disabled = false;     
     };
     if (a<window.maxTable-1) {
-     document.getElementById(window.tableID+(a+1).toString()).style.display = '';   
+     document.getElementById(window.tableID+(a+1).toString()).style.display = '';
      a=a+1;
     };
   };
@@ -117,18 +104,29 @@ function activateBtn() {
 };
 
 function save() {
+ window.fallback = true; 
+ changeLanguage();
+ senderName = window.webxdc.selfName;
  window.storedEvent = document.getElementById('inputEvent').value;
  window.storedDate = document.getElementById('datepicker').value;
- 
  if (clickedID < arrHistory.length) {
   arrHistory[clickedID] = window.storedEvent;
   arrHistory[clickedID+1] = window.storedDate;
-  
-  info = window.webxdc.selfName+ " changed the event " + '\"' + window.storedEvent + '\"';
+  info = strChangeEvent.replace('%N', senderName).replace ('%E', window.storedEvent);
+  if (window.fallback == false) {
+   changeLanguage();
+   infoEn = strChangeEvent.replace('%N', senderName).replace ('%E', window.storedEvent);
+   addEnglish();
+  }
  }
  else {
   arrHistory.push(window.storedEvent,window.storedDate);
-info = window.webxdc.selfName+ " added an countdown for " + '\"' + window.storedEvent + '\"';
+  info = strNewEvent.replace('%N', senderName).replace ('%E', window.storedEvent);
+  if (window.fallback == false) {
+   changeLanguage();
+   infoEn = strNewEvent.replace('%N', senderName).replace ('%E', window.storedEvent);
+   addEnglish();
+  }
  };
  if (arrHistory.length >2) {sortEntries()};
  sendUpdate();
@@ -137,17 +135,15 @@ info = window.webxdc.selfName+ " added an countdown for " + '\"' + window.stored
  cancel();
 };
 
-function sendUpdate() {
- window.webxdc.sendUpdate({
-   payload: {
-   arrHistory,
-   },
-   info,
-  }, info);
-};
-
 function deleteEntry() {
- info = window.webxdc.selfName+ " deleted the event "+ '\"' + arrHistory[clickedID] + '\"';
+ senderName = window.webxdc.selfName;
+ info = strDeleteEvent.replace('%N', senderName).replace ('%E', arrHistory[clickedID]);
+ if (window.fallback == false) {
+  changeLanguage();
+  infoEn = strDeleteEvent.replace('%N', senderName).replace ('%E', arrHistory[clickedID]);
+  addEnglish();
+  window.fallback = true;
+ }
  arrHistory.splice(clickedID,2);
  sendUpdate();
  cancel();
@@ -158,10 +154,24 @@ function cancel() {
  location.assign('./index.html');
 };
 
+function SilentMsg() {
+ arrHistory = JSON.parse(localStorage.getItem("arrHistory"));
+ silentMsgSent = localStorage.getItem("silentMsgSent");
+ info = localStorage.getItem("info");
+ if (info != null && info != "" && silentMsgSent == "true") {
+//hide Button if silent infomessage was sent
+ clicked_id = localStorage.getItem("clicked_id");
+ document.getElementById(clicked_id).style.display = 'none';
+ localStorage.setItem("silentMsgSent", "false");
+ sendUpdate();
+ localStorage.setItem("info", "");
+ }
+}
+
 function sortEntries() {
 sorted = false;
  while (sorted == false) {
- sorted = true;
+  sorted = true;
   for (i=0;i<arrHistory.length;i=i+2) {
    if (arrHistory[i+1]>arrHistory[i+3]) {
     sorted = false;

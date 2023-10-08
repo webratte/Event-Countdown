@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Event Countdown</title>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width'/>
+  <link href='./main.css' rel="stylesheet">
+  <script src='./languages.js'></script>
+  <script src='./webxdc.js'></script>
+  <script src='./sendmsg.js'></script>
+  <style type='text/css'></style>
+ </head>
+<font size='6'>Event Countdown</font>
+</font>
+<body>
+ <form>
+ <table id='tableInfo' class="table">
+  <th>
+   <p>
+    <output class="eventlabel" id="infoTxt"></output>
+   </p>
+  </th>
+</table>
+<br>
+<input class="button" type='button' id='btnChatMsg' onclick=sendChatMsg();>
+<input class="button" type='button' id='btnSilentMsg'  onclick=sendSilentMsg(); style='float: right'>
+<div style='text-align:center;padding:10px;'>
+ <input class="button" type='button' id='cancel' onclick=cancelSendMsg();>
+ </div>
+ </form>
+<script>
+ infoSite = true;
+ changeLanguage();
+</script>
+</body>
+</html>

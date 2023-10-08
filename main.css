@@ -5,7 +5,6 @@ body {
 
 /*   Inactiv tables */
 .button {
-    //text-algin: center;
     background: #bababa;
     border-radius: 5px;
     font-size: 15px;
@@ -36,7 +35,7 @@ body {
 
 .buttontable {
     text-align: center;
-    width: 10%;
+    width: 20%;
 }
 
 .eventlabel {
@@ -81,6 +80,7 @@ body {
     border-color: #0c9515;
     border-radius: 5px;
 }
+
 .table7Days {
     text-align: center;
     width: 100%;
@@ -90,6 +90,7 @@ body {
     border-color: #ffb200;
     border-radius: 5px;
 }
+
 .tableExpired {
     text-align: center;
     width: 100%;
@@ -107,9 +108,11 @@ body {
 
 .buttontableActiv {
     text-align: center;
-    width: 10%;
+    width: 20%;
 }
+
 .datelabelactiv {
+    white-space: nowrap;
     vertical-align: top;
     width: 80%;
     display: inline;
