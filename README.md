@@ -8,5 +8,7 @@ You can use this [webxdc app](https://github.com/webxdc) e.g.  E.g. share in a [
 
   Or just share this app in your Saved Messages chat.  You can add a shortcut to your homescreen and have key events available on all devices you run Delta Chat on.
 
+  <img alt="Screenshot" src="https://github.com/webratte/Event-Countdown/blob/main/screenshots/Screenshot.png" width="298" />>
+
 ## Remember
 Every user have to use a Delta Chat App. Webxdc Apps works not with regular Mailclients
