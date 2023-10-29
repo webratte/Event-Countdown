@@ -7,3 +7,6 @@ You can use this [webxdc app](https://github.com/webxdc) e.g.  E.g. share in a [
  Use it, for example, to share with friends your anticipation of an upcoming party or other event.  With just a few clicks you can remind group members of upcoming events.
 
   Or just share this app in your Saved Messages chat.  You can add a shortcut to your homescreen and have key events available on all devices you run Delta Chat on.
+
+## Remember
+Every user have to use a Delta Chat App. Webxdc Apps works not with regular Mailclients
